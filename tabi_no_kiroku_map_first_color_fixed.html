@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#faf8f4" name="theme-color"/><title>旅のきろく。</title><style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap');
+*{box-sizing:border-box}body{margin:0;background:#ddd;font-family:"Noto Sans JP",sans-serif;color:var(--ink)}button,input,textarea{font:inherit}button{cursor:pointer}.app{max-width:480px;margin:auto;min-height:100vh;background:var(--bg);padding-bottom:90px;overflow:hidden;position:relative}.top{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}.brand{font-weight:700;letter-spacing:.08em;font-size:17px}.edition{font-size:9px;letter-spacing:.18em}main section{display:none}main section.active{display:block}.hero{text-align:center;padding:26px 24px 15px}.overline{font-size:10px;letter-spacing:.24em;font-weight:600}.hero h1{font-size:40px;line-height:1.3;margin:16px 0 8px;font-weight:500}.hero p{font-size:12px;line-height:2}.ornament{text-align:center;font-size:23px;letter-spacing:9px;margin:14px 0}.feature{margin:12px 20px;padding:25px 20px;text-align:center}.feature h2{font-size:25px;margin:8px 0;font-weight:500}.feature p{font-size:12px;line-height:2}.stats{display:flex;gap:12px;margin:18px 20px}.stat{flex:1;text-align:center;padding:15px 4px}.stat strong{font-size:35px;font-weight:500;display:block}.stat small{font-size:10px}.head{padding:22px 24px 12px;text-align:center}.head h1{font-size:32px;font-weight:500;margin:12px 0}.head p{font-size:12px;line-height:1.8}.panel{margin:12px 20px;padding:20px}.map-box{height:auto;min-height:660px;position:relative;display:block;overflow:visible}.map-box japan-prefecture-map{display:block;width:100%;height:660px;min-height:660px;overflow:visible}.map-note{font-size:11px;color:var(--muted);line-height:1.8}.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:10px;margin-top:14px;justify-content:center}.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px}.label{display:block;font-size:11px;font-weight:700;margin:14px 0 7px}input,textarea{width:100%;padding:12px;border:1px solid var(--line);background:#332e29;border-radius:4px;font-size:13px;color:#f5e6c7}textarea{height:85px}.statuses{display:grid;grid-template-columns:1fr 1fr;gap:7px}.statuses button{padding:11px 4px;background:transparent;border:1px solid var(--line);font-size:11px;color:var(--ink)}.statuses button.selected{background:var(--accent);color:white;border-color:var(--accent)}.primary{width:100%;background:var(--accent);color:#fff;border:0;padding:15px;margin-top:16px;font-size:12px;font-weight:700;letter-spacing:.1em}.trip{margin:12px 20px;padding:18px 20px;background:#292521e8;border:1px solid var(--line)}.trip h3{font-size:19px;margin:8px 0;font-weight:500}.trip p{font-size:12px;line-height:1.8}.trip button{font-size:11px;border:1px solid var(--line);padding:8px 12px;background:transparent;color:var(--ink)}.empty{text-align:center;padding:36px;font-size:12px;line-height:2;color:var(--muted)}nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:75px;background:var(--nav);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);z-index:5}nav button{border:0;background:none;color:var(--muted);font-size:9px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}nav button b{font-size:20px;font-weight:400}nav button.active{color:var(--accent)}.photo{position:relative;margin:8px 20px;height:320px;overflow:hidden}.photo .caption{position:absolute;bottom:16px;left:17px;right:17px;font-size:10px;letter-spacing:.12em}.theme-tag{text-align:center;font-size:11px;padding:25px;line-height:2}
+body[data-theme="black"]{--ink:#e9d4a6;--bg:#171718;--accent:#ad874b;--nav:#191919;--muted:#c0a982;--line:#735e3c}body[data-theme="black"] .app{background:radial-gradient(ellipse at 50% 6%,#42372b,transparent 52%),repeating-linear-gradient(90deg,#d6ad5a0c 0 1px,transparent 1px 7px),var(--bg)}body[data-theme="black"] .top{border-bottom:1px solid #bba37c}body[data-theme="black"] .hero{margin:12px 17px 0;border:1px solid #bda77e;outline:4px double #bda77e;outline-offset:-10px;padding:38px 20px 22px}body[data-theme="black"] .hero h1{font-family:"Playfair Display",serif;font-size:39px}body[data-theme="black"] .ornament{font-family:serif;color:#ae8752;letter-spacing:5px}body[data-theme="black"] .photo{border:8px double #ae9165;outline:1px solid #b89d73;outline-offset:5px;background:radial-gradient(ellipse at 50% 20%,#e2bfa2 0%,transparent 44%),linear-gradient(160deg,#333a3c 0 38%,#6d5b47 39% 65%,#272522 66%);height:315px}body[data-theme="black"] .photo:before,body[data-theme="black"] .photo:after{content:"❦";position:absolute;z-index:2;font-size:65px;color:#f8e8c9;opacity:.95}body[data-theme="black"] .photo:before{top:-24px;left:4px;transform:rotate(-35deg)}body[data-theme="black"] .photo:after{bottom:-25px;right:0;transform:rotate(140deg)}body[data-theme="black"] .photo-decor{position:absolute;inset:30px;border:2px solid #f6e9c9;border-radius:45% 45% 6px 6px;box-shadow:0 0 0 5px #765d3a66}body[data-theme="black"] .photo .caption{color:#fff;text-shadow:0 1px 3px #332}body[data-theme="black"] .stat,body[data-theme="black"] .feature,body[data-theme="black"] .panel{border:3px double #ae9165;background:#292521e8}body[data-theme="black"] .feature{position:relative}body[data-theme="black"] .feature:before{content:"❧ ❦ ❧";display:block;font-size:25px;color:#b09568}body[data-theme="black"] .head h1,body[data-theme="black"] .feature h2{font-family:"Playfair Display",serif}body[data-theme="black"] .primary{background:#9a7741}body[data-theme="black"] .photo .caption{color:#f7e4bc}body[data-theme="black"] .trip{background:#292521;border-color:#8a7049}body[data-theme="black"] input::placeholder,body[data-theme="black"] textarea::placeholder{color:#a89a85}body[data-theme="black"] .statuses button.selected{color:#fff}body[data-theme="black"] .map-box{background:#242420;border:1px solid #756447}body[data-theme="black"] .stat{background:#292521}body[data-theme="black"] .theme-tag{color:#c0a982}
+
+body[data-theme="editorial"]{--ink:#453d3b;--bg:#faf8f6;--accent:#a47f77;--nav:#fff;--muted:#928d8a;--line:#e0d8d4}body[data-theme="editorial"] .app{background:linear-gradient(90deg,transparent 0 93%,#eee8e4 93% 94%,transparent 94%),var(--bg)}body[data-theme="editorial"] .top{border-bottom:1px solid #eee9e6}body[data-theme="editorial"] .brand{font-size:15px;font-weight:500}body[data-theme="editorial"] .hero{padding:43px 24px 15px;text-align:left}body[data-theme="editorial"] .hero .overline{font-size:9px;letter-spacing:.32em}body[data-theme="editorial"] .hero h1{font-family:"Great Vibes",cursive;font-size:72px;line-height:1.3;margin:6px 0 0;transform:rotate(-3deg);font-weight:400}body[data-theme="editorial"] .hero .ornament{display:none}body[data-theme="editorial"] .hero p{margin-left:42%;font-size:11px;line-height:1.9}body[data-theme="editorial"] .photo{height:385px;background:#e9e4df;overflow:visible;margin:0 23px 30px}body[data-theme="editorial"] .photo:before{content:"";position:absolute;left:-12px;top:28px;width:68%;height:75%;background:linear-gradient(145deg,#ded6cd,#aab4ad 48%,#e4e0d8 49%,#8f9184);box-shadow:5px 8px 0 #fff;transform:rotate(-3deg)}body[data-theme="editorial"] .photo:after{content:"";position:absolute;right:-7px;top:-14px;width:58%;height:62%;background:linear-gradient(155deg,#d5d0c7 0 30%,#b1a8a0 31% 55%,#eee4d8 56%);box-shadow:-5px 6px 0 #fff;transform:rotate(4deg)}body[data-theme="editorial"] .photo-decor{position:absolute;right:8%;bottom:20px;width:48%;height:45%;background:linear-gradient(135deg,#c7b3a5,#f4e4d7 50%,#98847b 51%);z-index:1;box-shadow:0 0 0 8px #fff;transform:rotate(2deg)}body[data-theme="editorial"] .photo .caption{z-index:2;bottom:-17px;left:3px;color:#7c706b;background:#faf8f6;font-size:9px}body[data-theme="editorial"] .stats{gap:0}body[data-theme="editorial"] .stat{border-right:1px solid #ddd}body[data-theme="editorial"] .stat:last-child{border:0}body[data-theme="editorial"] .stat strong{font-family:"Playfair Display",serif}body[data-theme="editorial"] .feature{background:linear-gradient(140deg,#e9e0dc,#f8f3f0);text-align:left;padding:33px}body[data-theme="editorial"] .feature h2,body[data-theme="editorial"] .head h1{font-family:"Playfair Display",serif;font-style:italic}body[data-theme="editorial"] .feature h2{font-size:30px}body[data-theme="editorial"] .panel{background:#fff;border:1px solid #eee}body[data-theme="editorial"] .primary{background:#a47f77}
+
+body[data-theme="watercolor"]{--ink:#3d5563;--bg:#fcfcfa;--accent:#548fa6;--nav:#fbfcfb;--muted:#879ca3;--line:#bcd1d6}body[data-theme="watercolor"] .app{background:radial-gradient(ellipse 180px 170px at 10% 18%,#b5d9ed88,transparent 95%),radial-gradient(ellipse 210px 140px at 90% 8%,#d9bde488,transparent 90%),radial-gradient(ellipse 220px 220px at 85% 52%,#a9d6c466,transparent 95%),radial-gradient(ellipse 200px 160px at 0% 76%,#f6c4bf77,transparent 92%),#fcfcfa}body[data-theme="watercolor"] .top{border-bottom:1px solid #bcd1d677}body[data-theme="watercolor"] .hero{padding-top:35px}body[data-theme="watercolor"] .hero h1{font-family:"Playfair Display",serif;font-style:italic;font-size:44px;color:#416c85}body[data-theme="watercolor"] .hero .ornament{color:#9a9ac6}body[data-theme="watercolor"] .photo{height:350px;border-radius:41% 59% 48% 52% / 29% 41% 59% 71%;background:radial-gradient(ellipse at 23% 20%,#e3c7e8 0 14%,transparent 40%),radial-gradient(ellipse at 78% 35%,#b0d8ee 0 25%,transparent 65%),radial-gradient(ellipse at 25% 72%,#7cb9b6 0 22%,transparent 58%),radial-gradient(ellipse at 74% 85%,#b9a6e5 0 18%,transparent 55%),#e6f3f3;filter:saturate(1.1)}body[data-theme="watercolor"] .photo:before{content:"";position:absolute;inset:20px;border-radius:40% 60% 62% 38% / 40% 35% 65% 60%;background:radial-gradient(ellipse at 50% 15%,#fff9d4 0 16%,transparent 19%),linear-gradient(150deg,transparent 48%,#8bb5ab 49% 61%,transparent 62%),linear-gradient(20deg,transparent 48%,#7b99b2 49% 63%,transparent 64%);opacity:.85}body[data-theme="watercolor"] .photo:after{content:"✦";position:absolute;top:4px;right:20px;color:#ba9fd6;font-size:40px}body[data-theme="watercolor"] .photo .caption{color:#365a6a;text-align:center;font-weight:700}body[data-theme="watercolor"] .stats .stat{background:#ffffffaa;border-radius:30px;box-shadow:0 3px 20px #b7d6db55}body[data-theme="watercolor"] .feature,body[data-theme="watercolor"] .panel{background:#ffffffc9;border-radius:28px;box-shadow:0 10px 40px #b7d6db33;border:1px solid #cbdde1}body[data-theme="watercolor"] .feature h2,body[data-theme="watercolor"] .head h1{font-family:"Playfair Display",serif;font-style:italic}body[data-theme="watercolor"] .primary{border-radius:50px;background:linear-gradient(110deg,#6196b4,#9389bf)}body[data-theme="watercolor"] .trip{border-radius:18px}
+.theme-choices{display:grid;gap:14px;margin:14px 20px 30px}.theme-choice{display:flex;align-items:center;text-align:left;gap:13px;width:100%;padding:10px;background:#ffffffb5;color:#363636;border:2px solid #ccc;min-height:116px}.theme-choice.selected{border:3px solid var(--accent);box-shadow:0 4px 18px #0002}.theme-choice>span:nth-child(2){flex:1}.theme-choice strong{font-size:13px;display:block;line-height:1.5}.theme-choice small{font-size:10px;display:block;line-height:1.8;margin-top:7px}.theme-choice .check{visibility:hidden;font-size:17px;color:var(--accent)}.theme-choice.selected .check{visibility:visible}.theme-preview{width:95px;min-width:95px;height:90px;display:grid;place-content:center;text-align:center;line-height:1.4}.black-preview{background:#171718;color:#d8b36d;border:5px double #bd9856;font:18px "Playfair Display",serif}.editorial-preview{background:linear-gradient(135deg,#d8d0cb 0 45%,#faf8f6 46% 60%,#b6a59b 61%);font:19px "Great Vibes",cursive;color:#544640}.watercolor-preview{background:radial-gradient(ellipse at 15% 25%,#b6d8e9,transparent 65%),radial-gradient(ellipse at 90% 75%,#d7b4e4,transparent 60%),radial-gradient(ellipse at 50% 55%,#acd9ca,transparent 65%),#fff;color:#487b9c;font:italic 17px "Playfair Display",serif}body[data-theme="black"] .theme-choice{background:#292521;color:#ead5ac;border-color:#705a3a}body[data-theme="black"] .theme-choice.selected{border-color:#d0a65f}body[data-theme="editorial"] .theme-choice{background:#fff}body[data-theme="watercolor"] .theme-choice{background:#ffffffdd;border-radius:18px}
+
+.album-tools select,.photo-pref{width:100%;padding:12px;background:#ffffffdb;color:#333;border:1px solid #b9b4ad;border-radius:5px;font-size:13px}.album-trip{padding:18px}.album-trip h3{margin:4px 0 9px}.album-trip .trip-meta{font-size:11px;opacity:.75}.album-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.upload-label{display:inline-flex;align-items:center;gap:5px;padding:10px 14px;background:var(--accent);color:white;font-size:12px;font-weight:700;cursor:pointer}.upload-label input{display:none}.album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}.album-item{position:relative;aspect-ratio:1;background:#7773;overflow:hidden}.album-item img{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer}.album-item .delete-photo{position:absolute;top:4px;right:4px;background:#000b;color:#fff;border:0;border-radius:50%;width:25px;height:25px;padding:0;font-size:16px}.album-item .photo-place{position:absolute;bottom:0;left:0;right:0;background:#0009;color:white;font-size:9px;padding:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.album-hint{font-size:11px;line-height:1.7;opacity:.8}.lightbox:not([hidden]){position:fixed;inset:0;z-index:30;background:#080808f5;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px 14px;color:white}.lightbox img{max-width:100%;max-height:76vh;object-fit:contain}.lightbox p{font-size:12px}.lightbox-close{position:absolute;right:18px;top:20px;background:none;color:white;border:0;font-size:34px}.album-count{font-size:11px;opacity:.8}
+.best-cover{height:210px;position:relative;margin:12px 0;overflow:hidden;border-radius:7px}.best-cover img{width:100%;height:100%;object-fit:cover}.best-cover span{position:absolute;left:8px;bottom:9px;background:#151515bf;color:#fff;font-size:10px;padding:7px 10px;font-weight:800}.best-star{position:absolute;left:5px;top:5px;border:0;border-radius:50%;background:#161616c7;color:white;width:34px;height:34px;font-size:23px;z-index:2;line-height:1}.best-star.is-best{color:#ffd36a}.best-card{background:#fff1;color:#fff;padding:12px;margin:12px 0;border:1px solid var(--line)}.best-card img{width:100%;height:220px;object-fit:cover;border-radius:4px}.best-card h3{margin:8px 0 2px;font-size:17px}.best-card p{font-size:11px}.best-map-card{margin:15px 0;padding:9px;background:#fff1}.best-map-card img{width:100%;height:170px;object-fit:cover}.best-map-card p{font-size:12px}body[data-theme="editorial"] .best-card,body[data-theme="watercolor"] .best-card{color:var(--ink);background:#ffffffc9}.best-collection{margin-bottom:20px}
+
+/* Original travel-notes visual identity: warm paper, pastel blue/pink/purple, rounded white cards. */
+body[data-theme="original"]{--ink:#303844;--bg:#faf8f4;--accent:#809fc2;--nav:#fffefb;--muted:#7c8792;--line:#e9e3da;background:#faf8f4}
+body[data-theme="original"] .app{background:linear-gradient(165deg,#fffaf5 0,#faf8f4 38%,#f5f6f8 100%)}
+body[data-theme="original"] .top{height:72px;background:#fffefa;border-bottom:1px solid #e9e3da}
+body[data-theme="original"] .brand{font-family:"Yu Mincho",serif;font-weight:700;font-size:23px;letter-spacing:.04em}
+body[data-theme="original"] .edition{font-size:9px;color:#8995a0}
+body[data-theme="original"] .hero{padding:34px 22px 16px;text-align:left}
+body[data-theme="original"] .hero h1{font-family:"Yu Mincho",serif;font-weight:700;font-size:39px;letter-spacing:.03em;margin:10px 0}
+body[data-theme="original"] .hero .overline{color:#8b9db1;font-size:10px;letter-spacing:.16em}
+body[data-theme="original"] .hero .ornament{text-align:left;font-size:12px;letter-spacing:.08em;color:#a5a0a9;margin:10px 0}
+body[data-theme="original"] .hero p{font-size:12px;color:#74808b;line-height:2}
+body[data-theme="original"] .stats{margin:15px 18px;gap:12px}
+body[data-theme="original"] .stat{border:1px solid #e6e8eb;border-radius:22px;background:#fff;box-shadow:0 8px 24px #5b51450a;padding:20px 10px}
+body[data-theme="original"] .stat:first-child{background:#eaf1f9}body[data-theme="original"] .stat:nth-child(2){background:#f7eaf0}
+body[data-theme="original"] .stat strong{font-size:38px;color:#536f90;font-weight:700}
+body[data-theme="original"] .feature,body[data-theme="original"] .panel,body[data-theme="original"] .trip{background:#fff;border:1px solid #e9e3da;border-radius:22px;box-shadow:0 8px 24px #5b51450a}
+body[data-theme="original"] .feature{margin:18px;text-align:left}
+body[data-theme="original"] .feature h2,body[data-theme="original"] .head h1{font-family:"Yu Mincho",serif;font-weight:700}
+body[data-theme="original"] .feature p{color:#74808b}
+body[data-theme="original"] .primary{background:#849fc0;border-radius:13px;color:white;font-weight:700;letter-spacing:0}
+body[data-theme="original"] .head{text-align:left;padding:28px 22px 12px}
+body[data-theme="original"] .head h1{font-size:29px}
+body[data-theme="original"] .head p{color:#74808b}
+body[data-theme="original"] input,body[data-theme="original"] textarea,body[data-theme="original"] select{background:#fff;color:#303844;border:1px solid #e2e5e8;border-radius:12px}
+body[data-theme="original"] .statuses button{border-radius:11px;background:#f7f8fa;color:#303844}
+body[data-theme="original"] .statuses button.selected{background:#849fc0;color:white}
+body[data-theme="original"] .map-box{background:#f6fafb;border-radius:15px}
+body[data-theme="original"] nav{background:#fffefa;box-shadow:0 -4px 18px #3038440a}
+body[data-theme="original"] nav button.active{color:#7394ba}
+body[data-theme="original"] .trip h3{font-weight:700}
+body[data-theme="original"] .best-card{background:#fff;color:#303844;border-radius:17px}
+body[data-theme="original"] .best-collection{background:#fff}
+body[data-theme="original"] .album-item{border-radius:13px;overflow:hidden}
+body[data-theme="original"] .upload-label{border-radius:12px}
+
+.home-map-title{font-size:19px;font-weight:800;margin-bottom:12px}.pref-grid-title{font-weight:800;font-size:13px;margin:18px 0 10px}.pref-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.pref-grid button{border:1px solid #e2e5e8;border-radius:9px;background:#eeefef;color:#303844;padding:9px 2px;font-size:11px;font-weight:700}.pref-grid button[data-status="1"]{background:#9dbbd8}.pref-grid button[data-status="2"]{background:#e8b7c7}.pref-grid button[data-status="3"]{background:#bdb0d9}.pref-grid button[data-status="4"]{background:#a9c4b2}.pref-grid button.chosen{outline:3px solid #4e7194;outline-offset:1px}.pref-details{padding:15px 5px;font-size:12px;line-height:1.9}.pref-details strong{font-size:16px}#homeMapPanel .map-box{height:auto;min-height:660px}
+@media(max-width:380px){.map-box{min-height:600px}.map-box japan-prefecture-map{height:600px;min-height:600px}#homeMapPanel .map-box{min-height:600px}}
+
+
+:root{--ink:#303844;--muted:#7c8792;--paper:#faf8f4;--line:#e9e3da;--blue:#9dbbd8;--pink:#e8b7c7;--purple:#bdb0d9}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif}
+main{max-width:900px;margin:auto;padding:28px 18px 90px}.brand{font:28px "Yu Mincho",serif;letter-spacing:.12em}.sub{font-size:10px;letter-spacing:.2em;color:var(--muted)}
+h1{font:500 30px "Yu Mincho",serif}.lead,.hint{font-size:13px;line-height:1.8;color:var(--muted)}
+.card{background:white;border:1px solid var(--line);border-radius:22px;padding:18px;margin:18px 0;box-shadow:0 8px 24px #5b51450a}
+.head{display:flex;justify-content:space-between;align-items:center}.head h2{font-size:15px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted)}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px}
+japan-prefecture-map{display:block;width:100%;--jpm-surface:#ffffff;--jpm-surface-raised:#faf8f4;--jpm-text:#303844;--jpm-muted:#7c8792;--jpm-border:#e9e3da;--jpm-accent:#9bafc4;--jpm-level-0:#e8e7e3;--jpm-level-0-stripe:transparent;--jpm-level-1:#9dbbd8;--jpm-level-2:#e8b7c7;--jpm-level-3:#bdb0d9;--jpm-level-4:#bdb0d9;--jpm-level-5:#a9c4b2;--jpm-map-glow:none}
+japan-prefecture-map::part(summary),japan-prefecture-map::part(legend){display:none}
+#map{min-height:260px;display:grid;place-items:center}
+select,input,textarea,button{font:inherit}select,input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:12px;margin:6px 0 12px;background:white;color:var(--ink)}textarea{min-height:80px}
+.states{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.states button{padding:12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:500;transition:background .15s,border-color .15s,box-shadow .15s;min-height:48px}
+.states button[aria-pressed="true"]{background:#eaf0f5;border:2px solid #7898b5;color:#405d78;font-weight:700;box-shadow:0 0 0 2px #7898b51a}
+.states button[aria-pressed="true"]::before{content:"✓ ";font-weight:800}
+.primary{width:100%;background:var(--ink);color:white;border:0;border-radius:12px;padding:13px}
+#editor{display:none}#editor.show{display:block}.record{border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0;font-size:12px}.record p{white-space:pre-wrap;color:var(--muted)}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fffe;border-top:1px solid var(--line);display:flex;justify-content:center;gap:30px;padding:14px;font-size:11px;color:var(--muted)}
+
+.trip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.trip-grid>*{min-width:0}
+.calendar-mode{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px}
+.calendar-mode button{padding:12px 4px;border:1px solid var(--line);border-radius:12px;background:white;color:var(--ink);font-size:13px}
+.calendar-mode button.active{background:#eaf0f5;border:2px solid #7898b5;color:#405d78;font-weight:700}
+.calendar{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
+.calendar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.calendar-head button{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:white;font-size:22px;color:var(--ink)}
+.calendar-week,.calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.calendar-week span{text-align:center;font-size:11px;color:var(--muted);padding:8px 0}
+.calendar-day{aspect-ratio:1;border:0;border-radius:10px;background:transparent;font-size:13px;color:var(--ink);min-width:0;padding:0}
+.calendar-day.other{color:#c5c3bf}.calendar-day.chosen{background:#dce8f1;color:#405d78;font-weight:700}
+.calendar-day.endpoint{background:#7898b5;color:white}.calendar-day.today{outline:1px solid #9dbbd8;outline-offset:-2px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.chip{padding:7px 10px;border:1px solid var(--line);border-radius:99px;background:#faf8f4;color:var(--ink);font-size:12px}
+.trip-actions{display:flex;gap:8px}.trip-actions button{flex:1}.secondary{border:1px solid var(--line);background:white;border-radius:12px;padding:12px;color:var(--ink)}
+.trip-record{border:1px solid var(--line);border-radius:12px;padding:13px;margin:9px 0;font-size:12px;line-height:1.8}.trip-record p{white-space:pre-wrap;color:var(--muted)}
+
+@media(min-width:700px){main{padding:40px 24px 100px}#map{min-height:400px}}
+
+.album-intro{font-size:12px;line-height:1.8;color:var(--muted)}
+.album-tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.album-tools button{flex:1;min-width:125px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-size:12px}
+.album-tools button.active{background:#eaf0f5;border:2px solid #7898b5;font-weight:700}
+.album-trip{padding:14px;margin:12px 0;border:1px solid var(--line);border-radius:16px;background:#fff}
+.album-trip h3{margin:4px 0 7px;font-size:15px}
+.album-trip .meta{font-size:11px;color:var(--muted);line-height:1.7}
+.album-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}
+.album-photo{position:relative;aspect-ratio:1;min-width:0;background:#f1f0ee;border-radius:10px;overflow:hidden}
+.album-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.album-photo .star{position:absolute;top:5px;left:5px;background:#ffffffed;color:#88734b;border:0;border-radius:50%;width:33px;height:33px;font-size:23px;line-height:1}
+.album-photo .star.chosen{background:#fff3c4;color:#a77700}
+.album-photo .remove{position:absolute;top:5px;right:5px;background:#303844b8;color:#fff;border:0;border-radius:50%;width:25px;height:25px}
+.album-photo .pref-tag{position:absolute;bottom:4px;left:4px;right:4px;font-size:10px;background:#fffdf4e8;padding:3px;border-radius:5px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.album-cover{margin:10px 0;position:relative;height:170px;border-radius:13px;overflow:hidden}
+.album-cover img{width:100%;height:100%;object-fit:cover}
+.album-cover span{position:absolute;bottom:7px;left:8px;background:#303844c9;color:white;font-size:11px;padding:5px 9px;border-radius:8px}
+.album-add{margin-top:12px;padding:11px 13px;border:1px solid #7898b5;background:#f0f5f8;border-radius:12px;color:#405d78;font-size:12px;font-weight:700}
+.album-select{margin:8px 0;max-width:100%;font-size:12px}
+.album-best-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.album-best-grid .album-cover{height:155px;margin:0}
+.album-best-grid h3{font-size:12px;margin:6px 0 0}
+.album-empty{font-size:12px;color:var(--muted);line-height:1.8;padding:12px 0}
+#photoLightbox[hidden]{display:none}
+#photoLightbox{position:fixed;inset:0;background:#111e;z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:18px}
+#photoLightbox img{max-width:100%;max-height:77vh;object-fit:contain}
+#photoLightbox p{color:white;font-size:12px}
+#photoLightbox button{align-self:flex-end;background:#fff;border:0;border-radius:50%;font-size:22px;width:42px;height:42px;margin-bottom:12px}
+
+
+body[data-theme="original"]{--ink:#303844;--bg:#faf8f4;--accent:#849fc0;--nav:#fffefa;--muted:#7c8792;--line:#e9e3da}
+body{background:#e8e6e3} .app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:100px}
+main{max-width:none;margin:0;padding:0 0 12px}
+main section{display:none}main section.active{display:block}
+main section.card{display:block;margin:14px 18px;padding:20px;background:#fff;border:1px solid #e9e3da;border-radius:22px;box-shadow:0 8px 24px #5b51450a}
+main section.card .head{padding:0 0 12px;text-align:left}
+main section.card .head h2{font-size:16px;margin:0}
+.app .top{height:72px;background:#fffefa;border-bottom:1px solid #e9e3da}
+.app .top .brand{font-family:"Yu Mincho",serif;font-size:23px}
+.hero{text-align:left;padding:32px 24px 12px}.hero h1{font-family:"Yu Mincho",serif;font-weight:700;font-size:35px}
+.hero p{color:#74808b;font-size:12px;line-height:1.9}
+.feature{background:white;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 24px #5b51450a;text-align:left}
+.feature h2{font-family:"Yu Mincho",serif;font-weight:700;font-size:23px}
+.panel{background:#fff;border:1px solid #e9e3da;border-radius:22px;box-shadow:0 8px 24px #5b51450a}
+.app .head-title{text-align:left;padding:24px 22px 8px}.head-title h1{font-family:"Yu Mincho",serif;font-size:29px;margin:8px 0}
+.head-title p{font-size:12px;color:var(--muted);line-height:1.8}
+.app .primary{background:#849fc0;border-radius:13px;color:white;letter-spacing:0}
+.app .secondary{border:1px solid var(--line);background:#fff;border-radius:12px;color:var(--ink)}
+.app select,.app input,.app textarea{background:#fff;color:#303844;border:1px solid #e2e5e8;border-radius:12px;width:100%}
+.app input[type=file]{width:auto}
+.app .states button{background:#f7f8fa;border-radius:11px;color:#303844}
+.app .states button[aria-pressed=true]{background:#eaf0f5;border:2px solid #7898b5;color:#405d78}
+.app .calendar-mode button{background:#fff;border-radius:12px;color:#303844}
+.app .calendar-mode button.active{background:#eaf0f5;border:2px solid #7898b5;color:#405d78}
+.app .calendar{border-radius:16px}
+.app #map{min-height:650px;display:block}
+.app #map japan-prefecture-map{height:650px;min-height:650px;width:100%;display:block}
+.app nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:75px;display:grid;grid-template-columns:repeat(5,1fr);padding:0;gap:0;background:#fffefa;z-index:10}
+.app nav button{font-size:9px;border:0;background:none;color:#7c8792;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.app nav button b{font-size:20px;font-weight:400}
+.app nav button.active{color:#7394ba}
+.app #albumSection .album-tools button{border-radius:12px}
+.app .album-trip{background:#fff;border-radius:17px}
+.app .album-photo{border-radius:12px}
+.app .trip-record{border:1px solid #e9e3da;border-radius:16px;background:#fff;padding:15px}
+.app .trip-album-cover{height:190px}
+#photoLightbox{z-index:50}
+.map-card{padding-bottom:18px}
+#mapstatus{margin-top:10px}
+.home-summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 20px}
+.home-stat{background:white;border:1px solid #e6e8eb;border-radius:22px;padding:18px 8px;text-align:center}
+.home-stat:first-child{background:#eaf1f9}.home-stat:nth-child(2){background:#f7eaf0}
+.home-stat strong{font-size:36px;color:#536f90;display:block}
+.home-stat small{font-size:10px}
+.album-tools button{min-width:0}
+@media(max-width:380px){.app #map,.app #map japan-prefecture-map{min-height:600px;height:600px}}
+</style><script src="https://cdn.jsdelivr.net/npm/japan-prefecture-map@0.3.0/dist/index.js" type="module"></script><style>
+/* Map-first home: map is visible immediately, without a tab or extra button. */
+#home .hero{padding-bottom:4px}
+#home .hero h1{font-size:30px;margin:7px 0}
+#home .hero p{margin:5px 0}
+#home .map-card{margin-top:12px}
+#home .map-card .head{padding:0 0 10px}
+#home #map{min-height:650px;height:auto}
+#home #map japan-prefecture-map{height:650px;min-height:650px}
+.app nav{grid-template-columns:repeat(4,1fr)}
+@media(max-width:380px){#home #map,#home #map japan-prefecture-map{min-height:600px;height:600px}}
+</style></head><body data-theme="original"><div class="app"><header class="top"><span class="brand">旅のきろく。</span><span class="edition">TRAVEL NOTES<br/>MY TRAVEL MAP ✳</span></header><main>
+<section class="active" id="home"><div class="hero"><div class="overline">YOUR TRAVEL MEMORIES</div><h1>旅のきろく。</h1><div class="ornament">✳ 旅の思い出を、ひとつずつ ✳</div><p>心に残る景色を、いつまでも。<br/>ふたりの旅も、ひとりの冒険も。</p></div><section class="card map-card"><div class="head"><h2>日本地図 · 47都道府県</h2><span class="sub">47 PREFECTURES</span></div>
+<div class="legend"><span><i class="dot" style="background:var(--blue)"></i>自分</span><span><i class="dot" style="background:var(--pink)"></i>相手</span><span><i class="dot" style="background:var(--purple)"></i>一緒</span><span><i class="dot" style="background:#e8e7e3"></i>未訪問</span></div>
+<div id="map"><japan-prefecture-map id="jmap" levels="{}" locale="ja" theme="light"></japan-prefecture-map></div>
+<p class="hint" id="mapstatus">地図を準備しています。県名一覧からも選択できます。</p>
+<p class="hint">地図データ：Japan Prefecture Map / JapanEx（MIT License）</p></section>
+<div class="home-summary"><div class="home-stat"><strong id="visited">0</strong><small>訪れた都道府県 / 47</small></div><div class="home-stat"><strong id="count">0</strong><small>旅の思い出</small></div></div>
+<div class="feature"><div class="overline">THE NEXT CHAPTER</div><h2>思い出を、重ねて。</h2><p>日本地図に、ふたりの旅を少しずつ。</p><button class="primary" data-goto="add" type="button">＋ 新しい旅を記録</button></div></section>
+<section id="add"><div class="head-title"><div class="overline">WRITE YOUR STORY</div><h1>旅を記録する</h1><p>旅行の日付も訪問先も、まとめて記録。</p></div><section class="card" id="tripSection"><div class="head"><h2>旅行を登録</h2><span class="sub">TRAVEL DIARY</span></div>
+<label for="tripName">旅行の名前</label><input id="tripName" placeholder="未入力なら「沖縄旅行」など自動で命名"/>
+<label>旅行日・訪問日（このカレンダーでまとめて選択）</label>
+<div aria-label="日付の選び方" class="calendar-mode" role="group"><button aria-pressed="true" class="active" data-cal-mode="range" type="button">期間選択</button><button aria-pressed="false" data-cal-mode="multi" type="button">複数選択</button></div>
+<div class="calendar"><div class="calendar-head"><button aria-label="前の月" id="prevMonth" type="button">‹</button><strong id="monthTitle"></strong><button aria-label="次の月" id="nextMonth" type="button">›</button></div><div class="calendar-week"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div><div class="calendar-days" id="calendarDays"></div></div>
+<p class="hint">選択した日付が旅行期間と訪問した県の日付の両方に反映されるよ。</p><p class="hint" id="calendarGuide">開始日と終了日を順番にタップすると、その間もすべて選択されるよ。</p><p class="hint" id="tripSummary">日付を選んでね。</p>
+<div class="head"><strong style="font-size:13px">選択した日付</strong><button class="secondary" id="clearDates" style="padding:6px 10px;font-size:12px" type="button">クリア</button></div><div class="chips" id="selectedDates"></div>
+<label for="tripPref">訪問した都道府県</label><p class="hint">日本地図をタップしても選べるよ。複数の県を追加できるよ。</p><div class="trip-grid"><select id="tripPref"><option value="">県を選択</option></select><button class="secondary" id="addTripPref" style="margin:6px 0 12px" type="button">＋ 追加</button></div><div class="chips" id="tripPrefChips"></div>
+<label>誰が行った？</label><div class="states" id="tripStates"><button aria-pressed="false" data-trip-state="1" type="button">自分だけ</button><button aria-pressed="false" data-trip-state="2" type="button">相手だけ</button><button aria-pressed="true" data-trip-state="3" type="button">一緒</button></div><p class="hint">選んだ県は、この色で日本地図にも反映されるよ。</p><label for="tripMemo">旅行の思い出</label><textarea id="tripMemo" placeholder="旅行の思い出をメモしよう"></textarea>
+<button class="primary" id="saveTrip" type="button">この旅行を保存</button>
+</section></section><section id="albumPage"><div class="head-title"><div class="overline">OUR TRAVEL STORIES</div><h1>旅のアルバム</h1><p>写真を残して、この旅のベストショットを選ぼう。</p></div><section class="card" id="albumSection">
+<div class="head"><h2>写真アルバム</h2><span class="sub">TRAVEL ALBUM 📸</span></div>
+<p class="album-intro">旅行ごとに写真を保存できるよ。写真の☆を押すと、その旅のベストショットになるよ。</p>
+<div class="album-tools"><button class="active" id="showAllAlbums" type="button">すべての旅行</button><button id="showBestAlbums" type="button">★ ベストショット</button></div>
+<label for="albumPrefFilter">都道府県で絞り込み</label><select id="albumPrefFilter"><option value="">すべての都道府県</option></select>
+<div id="albumContents"></div>
+</section></section><section id="recordsPage"><div class="head-title"><div class="overline">MY TRAVEL NOTES</div><h1>旅行一覧</h1><p>これまでの旅と都道府県の記録。</p></div><section class="card"><div class="head"><h2>旅行一覧</h2><span class="sub">MY TRIPS</span></div><div class="hint" id="tripRecords">まだ旅行はありません。</div></section><section class="card"><div class="head"><h2>都道府県の訪問状況</h2><span class="sub">PREFECTURE MAP</span></div><p class="hint">旅行を登録すると、ここにも自動で反映されるよ。以前の県ごとの記録も表示するよ。不要な色は「色を消す」から解除できるよ。</p><div class="hint" id="records"></div></section></section></main><div aria-modal="true" hidden="" id="photoLightbox" role="dialog"><button aria-label="閉じる" id="closePhoto" type="button">×</button><img alt="旅の写真" id="photoLarge"/><p id="photoCaption"></p></div><nav><button class="active" data-tab="home" type="button"><b>⌂</b>ホーム</button><button data-tab="add" type="button"><b>＋</b>旅を追加</button><button data-tab="albumPage" type="button"><b>▤</b>アルバム</button><button data-tab="recordsPage" type="button"><b>☷</b>旅行一覧</button></nav></div><script>
+const names=["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"];
+const codes=names.map((_,i)=>String(i+1).padStart(2,"0")),map=document.querySelector("#jmap");
+let records={};try{records=JSON.parse(localStorage.getItem("tabiRecords")||"{}")}catch(e){}
+function prefStatus(id){
+ let status=Number(records[id]?.state||0);
+ for(const t of trips){if((t.prefs||[]).map(String).includes(String(id))){const st=Number(t.state||0);if(st===3||status===3)status=3;else if(st&&status&&st!==status)status=3;else if(st)status=st;}}
+ return status;
+}
+function levels(){const x={};names.forEach((_,i)=>{const status=prefStatus(String(i+1));if(status)x[codes[i]]=status});return x}
+function getPrefDates(id){const all=new Set();if(records[id]?.date)all.add(records[id].date);for(const t of trips){if((t.prefs||[]).map(String).includes(String(id))){const ds=Array.isArray(t.dates)&&t.dates.length?t.dates:(t.start&&t.end?datesBetween(t.start,t.end):[]);ds.forEach(d=>all.add(d))}}return [...all].sort()}
+function render(){
+ map.setAttribute("levels",JSON.stringify(levels()));
+ const box=document.querySelector("#records");box.replaceChildren();let count=0;
+ names.forEach((name,i)=>{const id=String(i+1),state=prefStatus(id),dates=getPrefDates(id),memo=records[id]?.memo||"";if(!state&&!dates.length&&!memo)return;count++;
+ const d=document.createElement("div");d.className="record";const heading=document.createElement("b");heading.textContent=name;const line=document.createElement("div");line.textContent=["未訪問","自分だけ","相手だけ","一緒"][state]+" ・ "+(dates.length?dates.join("、"):"日付なし");d.append(heading,line);if(memo){const p=document.createElement("p");p.textContent=memo;d.append(p)}
+ if(records[id]){const clear=document.createElement('button');clear.type='button';clear.className='secondary';clear.style.cssText='padding:7px 10px;margin-top:8px;font-size:12px';clear.textContent='この県の古い記録・色を消す';clear.onclick=()=>{if(!confirm(name+'の以前の県別記録を削除する？（旅行の記録は残るよ）'))return;delete records[id];localStorage.setItem('tabiRecords',JSON.stringify(records));render()};d.append(clear)}box.append(d)
+ });if(!count)box.textContent="まだ記録はありません。";
+}
+map.addEventListener("click",e=>{for(const el of(e.composedPath?.()||[])){const c=el?.dataset?.code||el?.dataset?.prefectureCode;if(c){const id=String(Number(c));if(Number(id)>=1&&Number(id)<=47){addPref(id);document.querySelectorAll('main > section').forEach(s=>s.classList.toggle('active',s.id==='add'));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab==='add'));window.scrollTo(0,0)}break}}});
+customElements.whenDefined("japan-prefecture-map").then(()=>{document.querySelector("#mapstatus").textContent="地図をタップすると旅行の訪問先に追加できるよ。";render()}).catch(()=>{document.querySelector("#mapstatus").textContent="地図が表示されない場合は、下の県名一覧から選択してね。"});
+// Trip calendar and travel records
+const tripPref=document.querySelector('#tripPref');
+names.forEach((name,i)=>tripPref.add(new Option(name,String(i+1))));
+let trips=[];try{const stored=JSON.parse(localStorage.getItem('tabiTrips')||'[]');if(Array.isArray(stored))trips=stored}catch(e){}
+let tripPrefs=[],tripState=3,calMode='range',chosenDates=[],rangeAnchor=null;
+let calMonth=new Date();calMonth=new Date(calMonth.getFullYear(),calMonth.getMonth(),1);
+const pad=n=>String(n).padStart(2,'0');
+const toISO=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const fromISO=s=>{const a=s.split('-').map(Number);return new Date(a[0],a[1]-1,a[2])};
+function datesBetween(a,b){const arr=[];let d=fromISO(a),end=fromISO(b);for(;d<=end;d.setDate(d.getDate()+1))arr.push(toISO(d));return arr}
+function renderCalendar(){
+ const y=calMonth.getFullYear(),m=calMonth.getMonth();document.querySelector('#monthTitle').textContent=y+'年 '+(m+1)+'月';
+ const box=document.querySelector('#calendarDays');box.replaceChildren();
+ const offset=new Date(y,m,1).getDay(),last=new Date(y,m+1,0).getDate();
+ const count=Math.ceil((offset+last)/7)*7;
+ const first=chosenDates[0],end=chosenDates[chosenDates.length-1];
+ for(let i=0;i<count;i++){
+  const date=new Date(y,m,i-offset+1),key=toISO(date),button=document.createElement('button');button.type='button';
+  button.className='calendar-day';button.textContent=String(date.getDate());button.setAttribute('aria-label',key);
+  if(date.getMonth()!==m)button.classList.add('other');
+  if(chosenDates.includes(key))button.classList.add('chosen');
+  if(calMode==='range'&&(key===first||key===end)&&chosenDates.includes(key))button.classList.add('endpoint');
+  if(key===toISO(new Date()))button.classList.add('today');
+  button.setAttribute('aria-pressed',String(chosenDates.includes(key)));
+  button.addEventListener('click',()=>selectDate(key));box.append(button);
+ }
+ renderDateChips();renderTripSummary();
+}
+function selectDate(key){
+ if(calMode==='multi'){
+  chosenDates=chosenDates.includes(key)?chosenDates.filter(x=>x!==key):[...chosenDates,key];
+ }else if(rangeAnchor===null){rangeAnchor=key;chosenDates=[key]}
+ else{const a=rangeAnchor<key?rangeAnchor:key,b=rangeAnchor<key?key:rangeAnchor;chosenDates=datesBetween(a,b);rangeAnchor=null}
+ chosenDates.sort();renderCalendar();
+}
+function renderDateChips(){
+ const box=document.querySelector('#selectedDates');box.replaceChildren();
+ if(!chosenDates.length){box.textContent='まだ選択されていません。';return}
+ chosenDates.forEach(key=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=key+' ×';b.title='この日を解除';b.addEventListener('click',()=>{chosenDates=chosenDates.filter(x=>x!==key);rangeAnchor=null;renderCalendar()});box.append(b)})
+}
+function renderTripSummary(){
+ const box=document.querySelector('#tripSummary');
+ if(!chosenDates.length){box.textContent='日付を選んでね。';return}
+ const first=chosenDates[0],last=chosenDates[chosenDates.length-1];
+ const nights=Math.round((fromISO(last)-fromISO(first))/86400000);
+ box.textContent=calMode==='range'?first+' 〜 '+last+' ／ '+chosenDates.length+'日間・'+nights+'泊':chosenDates.length+'日選択 ／ '+first+' 〜 '+last+'（個別に選択した日付を保存）';
+}
+document.querySelectorAll('[data-cal-mode]').forEach(b=>b.addEventListener('click',()=>{
+ const mode=b.dataset.calMode;if(mode===calMode)return;
+ calMode=mode;rangeAnchor=null;chosenDates=[];
+ document.querySelectorAll('[data-cal-mode]').forEach(x=>{const active=x.dataset.calMode===calMode;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))});
+ document.querySelector('#calendarGuide').textContent=calMode==='range'?'開始日と終了日を順番にタップすると、その間もすべて選択されるよ。':'行った日だけをタップして選択・解除できるよ。';renderCalendar();
+}));
+document.querySelector('#prevMonth').addEventListener('click',()=>{calMonth.setMonth(calMonth.getMonth()-1);renderCalendar()});
+document.querySelector('#nextMonth').addEventListener('click',()=>{calMonth.setMonth(calMonth.getMonth()+1);renderCalendar()});
+document.querySelector('#clearDates').addEventListener('click',()=>{chosenDates=[];rangeAnchor=null;renderCalendar()});
+function addPref(id){if(id&&!tripPrefs.includes(String(id)))tripPrefs.push(String(id));tripPref.value='';renderTripPrefChips()}
+document.querySelector('#addTripPref').addEventListener('click',()=>addPref(tripPref.value));
+tripPref.addEventListener('change',()=>{if(tripPref.value)addPref(tripPref.value)});
+document.querySelectorAll('[data-trip-state]').forEach(b=>b.addEventListener('click',()=>{tripState=Number(b.dataset.tripState);document.querySelectorAll('[data-trip-state]').forEach(x=>x.setAttribute('aria-pressed',String(Number(x.dataset.tripState)===tripState)))}));
+function renderTripPrefChips(){const box=document.querySelector('#tripPrefChips');box.replaceChildren();if(!tripPrefs.length){box.textContent='まだ訪問先が選択されていません。';return}
+ tripPrefs.forEach(id=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=names[Number(id)-1]+' ×';b.addEventListener('click',()=>{tripPrefs=tripPrefs.filter(x=>x!==id);renderTripPrefChips()});box.append(b)})}
+function defaultTripName(prefs){
+ const places=(prefs||[]).map(id=>names[Number(id)-1]).filter(Boolean).map(n=>n==='北海道'?n:n.replace(/[都府県]$/,''));
+ return places.length?places.join('・')+'旅行':'名前のない旅行';
+}
+function renderTrips(){const box=document.querySelector('#tripRecords');box.replaceChildren();if(!trips.length){box.textContent='まだ旅行はありません。';return}
+ trips.forEach((trip,i)=>{const div=document.createElement('div');div.className='trip-record';
+ const title=document.createElement('strong');title.textContent=trip.name||defaultTripName(trip.prefs);div.append(title);
+ const ds=Array.isArray(trip.dates)&&trip.dates.length?[...trip.dates].sort():trip.start&&trip.end?datesBetween(trip.start,trip.end):[];
+ const line=document.createElement('div');
+ const nights=ds.length?Math.round((fromISO(ds[ds.length-1])-fromISO(ds[0]))/86400000):0;
+ line.textContent=ds.length?ds[0]+' 〜 '+ds[ds.length-1]+' ／ '+(trip.mode==='multi'?ds.length+'日選択':ds.length+'日間・'+nights+'泊'):'日付なし';div.append(line);
+ const pref=document.createElement('div');pref.textContent=(trip.prefs||[]).map(x=>names[Number(x)-1]).filter(Boolean).join('・')||'訪問先なし';div.append(pref);if(trip.state){const st=document.createElement('div');st.textContent='訪問状況：'+['未訪問','自分だけ','相手だけ','一緒'][Number(trip.state)];div.append(st)}
+ const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='選択した日付を見る';details.append(summary);
+ const dates=document.createElement('div');dates.textContent=ds.join('、');details.append(dates);div.append(details);
+ if(trip.memo){const memo=document.createElement('p');memo.textContent=trip.memo;div.append(memo)}
+ const del=document.createElement('button');del.type='button';del.className='secondary';del.style.cssText='padding:7px 12px;font-size:12px;margin-top:8px';del.textContent='この旅行を削除';del.addEventListener('click',()=>{if(confirm('この旅行を削除する？')){const removed=trips.splice(i,1)[0];
+ // Remove obsolete legacy per-prefecture statuses when no other trip uses that prefecture.
+ for(const pref of (removed.prefs||[])){const id=String(Number(pref));if(!trips.some(t=>(t.prefs||[]).map(x=>String(Number(x))).includes(id)))delete records[id]}
+ localStorage.setItem('tabiRecords',JSON.stringify(records));localStorage.setItem('tabiTrips',JSON.stringify(trips));renderTrips();render();}});div.append(del);box.append(div)
+ })
+}
+document.querySelector('#saveTrip').addEventListener('click',()=>{
+ if(!chosenDates.length){alert('カレンダーで日付を選んでね！');return}
+ if(!tripPrefs.length){alert('訪問した都道府県を追加してね！');return}
+ const dates=[...chosenDates].sort();const customName=document.querySelector('#tripName').value.trim();trips.push({id:(crypto.randomUUID?crypto.randomUUID():'trip-'+Date.now()+'-'+Math.random().toString(36).slice(2)),name:customName||defaultTripName(tripPrefs),start:dates[0],end:dates[dates.length-1],dates,mode:calMode,prefs:[...tripPrefs],state:tripState,memo:document.querySelector('#tripMemo').value});
+ try{localStorage.setItem('tabiTrips',JSON.stringify(trips))}catch(e){trips.pop();alert('保存できなかったよ。ブラウザの保存設定を確認してね。');return}
+ chosenDates=[];rangeAnchor=null;tripPrefs=[];tripState=3;document.querySelectorAll('[data-trip-state]').forEach(x=>x.setAttribute('aria-pressed',String(Number(x.dataset.tripState)===3)));document.querySelector('#tripName').value='';document.querySelector('#tripMemo').value='';renderCalendar();renderTripPrefChips();renderTrips();render();alert('旅行を保存したよ！')
+});
+renderCalendar();renderTripPrefChips();renderTrips();render();
+
+</script><script>
+/* 写真はIndexedDBに保存。既存のtabiTrips・tabiRecordsと画面デザインは維持。 */
+(function(){
+'use strict';
+const DB_NAME='tabiTravelPhotos', STORE='photos';
+const BEST_KEY='tabiBestShotByTrip';
+let best={};try{best=JSON.parse(localStorage.getItem(BEST_KEY)||'{}')||{}}catch(e){}
+let dbPromise;
+function openDB(){
+ if(dbPromise)return dbPromise;
+ dbPromise=new Promise((resolve,reject)=>{
+  if(!window.indexedDB){reject(new Error('このブラウザでは写真保存を利用できません'));return}
+  const req=indexedDB.open(DB_NAME,1);
+  req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(STORE)){const st=db.createObjectStore(STORE,{keyPath:'id'});st.createIndex('tripId','tripId',{unique:false})}};
+  req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);
+ });return dbPromise;
+}
+async function allPhotos(){
+ const db=await openDB();
+ return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly'),r=tx.objectStore(STORE).getAll();r.onsuccess=()=>resolve(r.result||[]);r.onerror=()=>reject(r.error)});
+}
+async function putPhoto(obj){
+ const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(obj);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});
+}
+async function deletePhoto(id){
+ const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});
+}
+const uid=()=>crypto.randomUUID?crypto.randomUUID():'trip-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+let changed=false;
+trips.forEach(t=>{if(!t.id){t.id=uid();changed=true}});
+if(changed){try{localStorage.setItem('tabiTrips',JSON.stringify(trips))}catch(e){console.warn(e)}}
+const albumContents=document.getElementById('albumContents'),prefFilter=document.getElementById('albumPrefFilter');
+names.forEach((name,i)=>prefFilter.add(new Option(name,String(i+1))));
+let bestOnly=false,refreshSeq=0;
+const allBtn=document.getElementById('showAllAlbums'),bestBtn=document.getElementById('showBestAlbums');
+allBtn.onclick=()=>{bestOnly=false;allBtn.classList.add('active');bestBtn.classList.remove('active');refreshAlbums()};
+bestBtn.onclick=()=>{bestOnly=true;bestBtn.classList.add('active');allBtn.classList.remove('active');refreshAlbums()};
+prefFilter.onchange=refreshAlbums;
+const lightbox=document.getElementById('photoLightbox'),large=document.getElementById('photoLarge'),caption=document.getElementById('photoCaption');
+let lightboxUrl;
+function showLarge(photo,trip){if(lightboxUrl)URL.revokeObjectURL(lightboxUrl);lightboxUrl=URL.createObjectURL(photo.blob);large.src=lightboxUrl;caption.textContent=(trip.name||defaultTripName(trip.prefs))+' · '+(names[Number(photo.prefId)-1]||'旅の写真');lightbox.hidden=false}
+function closeLarge(){lightbox.hidden=true;large.removeAttribute('src');if(lightboxUrl){URL.revokeObjectURL(lightboxUrl);lightboxUrl=null}}
+document.getElementById('closePhoto').onclick=closeLarge;
+lightbox.onclick=e=>{if(e.target===lightbox)closeLarge()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lightbox.hidden)closeLarge()});
+function imageElement(photo,trip){const img=document.createElement('img');img.alt=(trip.name||'旅行')+'の写真';const url=URL.createObjectURL(photo.blob);img.src=url;img.onload=()=>URL.revokeObjectURL(url);img.onclick=()=>showLarge(photo,trip);return img}
+function cover(photo,trip){const wrap=document.createElement('div');wrap.className='album-cover';wrap.append(imageElement(photo,trip));const tag=document.createElement('span');tag.textContent='★ この旅のベストショット';wrap.append(tag);return wrap}
+function saveBest(){try{localStorage.setItem(BEST_KEY,JSON.stringify(best))}catch(e){alert('ベストショットの保存に失敗したよ')}}
+async function addPhotos(trip,files,prefId){
+ if(!files.length)return;
+ let ok=0;
+ for(const file of files){
+  if(!file.type.startsWith('image/'))continue;
+  try{await putPhoto({id:uid(),tripId:String(trip.id),prefId:String(prefId),blob:file,addedAt:Date.now()});ok++}
+  catch(e){alert('写真を保存できなかったよ。iPhoneの保存容量やブラウザ設定を確認してね。');break}
+ }
+ if(ok)refreshAlbums();
+}
+function empty(text){const p=document.createElement('p');p.className='album-empty';p.textContent=text;return p}
+async function refreshAlbums(){
+ const seq=++refreshSeq;albumContents.replaceChildren();
+ let photos;try{photos=await allPhotos()}catch(e){albumContents.append(empty('写真保存を開けませんでした。Safariなどのブラウザで試してね。'));return}
+ if(seq!==refreshSeq)return;
+ const pref=prefFilter.value;
+ let shown=0;
+ for(const trip of [...trips].reverse()){
+  const tripPhotos=photos.filter(p=>String(p.tripId)===String(trip.id));
+  const visible=tripPhotos.filter(p=>!pref||String(p.prefId)===pref);
+  const shot=tripPhotos.find(p=>String(p.id)===String(best[String(trip.id)]));
+  if(bestOnly){
+   if(!shot||pref&&String(shot.prefId)!==pref)continue;
+   const item=document.createElement('article');item.className='album-trip';item.append(cover(shot,trip));const h=document.createElement('h3');h.textContent=trip.name||defaultTripName(trip.prefs);item.append(h);albumContents.append(item);shown++;continue;
+  }
+  if(pref&&!((trip.prefs||[]).map(String).includes(pref))&&!visible.length)continue;
+  const item=document.createElement('article');item.className='album-trip';
+  const title=document.createElement('h3');title.textContent=trip.name||defaultTripName(trip.prefs);item.append(title);
+  const meta=document.createElement('div');meta.className='meta';meta.textContent=[trip.start||'',(trip.prefs||[]).map(id=>names[Number(id)-1]).join('・')].filter(Boolean).join(' ／ ');item.append(meta);
+  if(shot&&(!pref||String(shot.prefId)===pref))item.append(cover(shot,trip));
+  const select=document.createElement('select');select.className='album-select';(trip.prefs||[]).forEach(id=>{select.add(new Option(names[Number(id)-1],String(id)))});if(pref&&(trip.prefs||[]).map(String).includes(pref))select.value=pref;
+  const add=document.createElement('button');add.className='album-add';add.type='button';add.textContent='＋ この旅行に写真を追加';
+  const input=document.createElement('input');input.type='file';input.accept='image/*';input.multiple=true;input.hidden=true;
+  add.onclick=()=>{if(!select.value){alert('写真の都道府県を選んでね');return}input.click()};
+  input.onchange=async()=>{await addPhotos(trip,[...input.files],select.value);input.value=''};
+  item.append(select,add,input);
+  const grid=document.createElement('div');grid.className='album-photos';
+  for(const photo of visible){
+   const tile=document.createElement('div');tile.className='album-photo';tile.append(imageElement(photo,trip));
+   const star=document.createElement('button');star.className='star'+(String(best[String(trip.id)])===String(photo.id)?' chosen':'');star.textContent=String(best[String(trip.id)])===String(photo.id)?'★':'☆';star.setAttribute('aria-label','ベストショットに設定');
+   star.onclick=()=>{if(String(best[String(trip.id)])===String(photo.id))delete best[String(trip.id)];else best[String(trip.id)]=photo.id;saveBest();refreshAlbums();updateTripCovers()};
+   const del=document.createElement('button');del.className='remove';del.textContent='×';del.setAttribute('aria-label','写真を削除');del.onclick=async()=>{if(!confirm('この写真を削除する？'))return;await deletePhoto(photo.id);if(String(best[String(trip.id)])===String(photo.id)){delete best[String(trip.id)];saveBest()}refreshAlbums();updateTripCovers()};
+   const tag=document.createElement('span');tag.className='pref-tag';tag.textContent=names[Number(photo.prefId)-1]||'';tile.append(star,del,tag);grid.append(tile);
+  }
+  if(visible.length)item.append(grid);else item.append(empty('写真はまだないよ。追加してみよう！'));
+  albumContents.append(item);shown++;
+ }
+ if(!shown)albumContents.append(empty(bestOnly?'ベストショットはまだないよ。アルバムの写真から☆を選んでね。':'表示する旅行がないよ。先に旅行を登録してね。'));
+}
+async function updateTripCovers(){
+ document.querySelectorAll('.trip-album-cover').forEach(el=>el.remove());
+ let photos;try{photos=await allPhotos()}catch(e){return}
+ const cards=document.querySelectorAll('#tripRecords .trip-record');
+ trips.forEach((trip,i)=>{
+  const shot=photos.find(p=>String(p.id)===String(best[String(trip.id)])&&String(p.tripId)===String(trip.id));
+  if(shot&&cards[i]){const wrapper=cover(shot,trip);wrapper.classList.add('trip-album-cover');cards[i].insertBefore(wrapper,cards[i].children[1]||null)}
+ });
+}
+const oldRenderTrips=renderTrips;
+renderTrips=function(){oldRenderTrips();refreshAlbums();updateTripCovers()};
+if(document.getElementById('albumNav'))document.getElementById('albumNav').onclick=()=>document.getElementById('albumSection').scrollIntoView({behavior:'smooth'});
+if(document.getElementById('albumNav'))document.getElementById('albumNav').onkeydown=e=>{if(e.key==='Enter')document.getElementById('albumNav').click()};
+refreshAlbums();updateTripCovers();
+})();
+</script><script>
+(function(){
+function goto(id){document.querySelectorAll('main > section').forEach(el=>el.classList.toggle('active',el.id===id));document.querySelectorAll('nav button').forEach(el=>el.classList.toggle('active',el.dataset.tab===id));window.scrollTo(0,0)}
+document.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>goto(el.dataset.tab)));
+document.querySelectorAll('[data-goto]').forEach(el=>el.addEventListener('click',()=>goto(el.dataset.goto==='map'?'mapPage':el.dataset.goto)));
+function stats(){document.getElementById('count').textContent=trips.length;document.getElementById('visited').textContent=names.filter((_,i)=>[1,2,3].includes(prefStatus(String(i+1)))).length}
+const originalRenderStats=render;render=function(){originalRenderStats();stats()};
+const originalSaveTrip=document.getElementById('saveTrip');
+originalSaveTrip.addEventListener('click',()=>setTimeout(stats,0));
+document.getElementById('albumNav')?.addEventListener('click',()=>goto('albumPage'));
+stats();
+})();
+</script><script>
+(function(){
+ const jmap=document.getElementById('jmap');
+ jmap.addEventListener('click',function(e){
+  const hasPref=(e.composedPath?.()||[]).some(el=>el?.dataset?.code||el?.dataset?.prefectureCode);
+  if(hasPref){document.querySelectorAll('main > section').forEach(s=>s.classList.toggle('active',s.id==='add'));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab==='add'));window.scrollTo({top:0,behavior:'smooth'});}
+ });
+})();
+</script></body></html>
